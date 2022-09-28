@@ -8,3 +8,19 @@ pamatyti jo pateikto svorio kovertavimą į:
 Pastaba: atvaizdavimas turi būti matomas pateikus formą ir pateikiamas
 <div id="output"></div> viduje, bei turi turėti bent minimalų stilių;
 ------------------------------------------------------------------- */
+document.getElementById("output").style.visibility = "hidden";
+
+function converte(e) {
+    e.preventDefault()
+    document.getElementById("output").style.visibility = "visible";
+    const svoris = document.querySelector('#search');
+    let lb = svoris.value * 2.2046; // .toFixed() neveikia?
+    let num1 = document.getElementById("pounds").innerHTML = lb.toFixed(2);
+    let g =  svoris.value / 0.0010000;
+    let num2 = document.getElementById("gram").innerHTML = g.toFixed(0);
+    let oc =  svoris.value * 35.274;
+    let num3 = document.getElementById("ounce").innerHTML = oc.toFixed(2);
+    svoris.value = '';
+  }
+  
+  document.querySelector('#submit-btn').addEventListener('click', converte);

@@ -8,6 +8,17 @@
 }
 
 /* Mobile first */
+#output {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+p {
+  background-color: white;
+  padding: 2rem;
+}
+
 .wrapper {
   min-height: 100vh;
   min-width: calc(100vw - (100vw - 100%));
