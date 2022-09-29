@@ -12,3 +12,16 @@ turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'https://api.github.com/users';
+
+const fetchData = async() => {
+    const response = await fetch(ENDPOINT);
+    const data = await response.json();
+    document.querySelector('button').style.visibility = "hidden";
+    data.forEach((user) => {
+      const userInfo = `${user.login} ${user.avatar_url}`;
+      console.log(userInfo);
+      document.querySelector('#output').innerHTML = userInfo;
+    })
+  }
+  
+  document.querySelector('button').addEventListener('click', fetchData);
