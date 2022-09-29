@@ -12,16 +12,25 @@ turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'https://api.github.com/users';
+const body = document.querySelector('.output-cointainer');
 
-const fetchData = async() => {
-    const response = await fetch(ENDPOINT);
-    const data = await response.json();
-    document.querySelector('button').style.visibility = "hidden";
-    data.forEach((user) => {
-      const userInfo = `${user.login} ${user.avatar_url}`;
-      console.log(userInfo);
-      document.querySelector('#output').innerHTML = userInfo;
-    })
-  }
-  
-  document.querySelector('button').addEventListener('click', fetchData);
+const fetchData = async () => {
+  const response = await fetch(ENDPOINT);
+  const data = await response.json();
+  document.querySelector('#output').style.visibility = "hidden";
+  data.forEach((user) => {
+    const userInfo = `${user.login}`;
+    const newCard = document.createElement('div');
+    newCard.setAttribute('id', 'newoutput');
+    body.append(newCard);
+    const infoo = document.createElement('p');
+    const pics = document.createElement('img');
+    pics.setAttribute("src", user.avatar_url);
+    pics.setAttribute("width", "150px");
+    newCard.append(pics);
+    infoo.textContent = userInfo;
+    newCard.append(infoo);
+  })
+}
+
+document.querySelector('button').addEventListener('click', fetchData);
