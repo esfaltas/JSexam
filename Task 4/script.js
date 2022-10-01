@@ -10,26 +10,29 @@ turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'cars.json';
-const booty = document.querySelector('#output')
+const mainCont = document.querySelector('#output')
 
 const getCars = async () => {
+try {
     const response = await fetch(ENDPOINT);
     const data = await response.json();
     data.forEach((carBrand) => {
         const masina = carBrand.brand;
         const marke = carBrand.models;
-        console.log(marke);
-        console.log(masina);
         const brand = document.createElement('div');
         brand.setAttribute('id', 'newoutput');
+        mainCont.append(brand);
+
         const list = document.createElement('ul');
-        const display = document.createElement('li');
         list.textContent = masina;
+        brand.append(list);
+
+        const display = document.createElement('li');
         display.textContent = marke;
-        list.append(display);
-        booty.append(brand);
-        brand.append(list);   
-    })
+        list.append(display);  
+    })} catch(error) {
+        console.log(error);
+    }
 }
 
 getCars();
