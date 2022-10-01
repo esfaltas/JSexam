@@ -10,3 +10,14 @@ const audi = {
   year: 2005,
   color: 'white',
 };
+
+function showObjectKeys() { 
+try { 
+let keys = Object.keys(audi);
+let newArray = [keys.join()];
+console.log(newArray);
+} catch(error) {
+  console.log(error);
+}};
+
+showObjectKeys()
