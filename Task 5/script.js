@@ -23,21 +23,26 @@ const users = [
 
 console.log('People\nwith dogs:')
 function filterDogOwers(users) {
-  users.forEach((person) => {
+ try {users.forEach((person) => {
     if (person.hasDog === true) {
       console.log(person.name)
     } 
-  })};
+  })} catch(error) {
+    console.log(error);
+  }
+};
 
 filterDogOwers(users);
 
 console.log('Adults:')
 function filterAdults(users) {
-  users.forEach((person) => {
+ try {users.forEach((person) => {
     if (person.age >= 18 ) {
       console.log(person.name)
-    }
-  })
+    } 
+  })} catch(error) {
+    console.log(error);
+  }
 };
 
 filterAdults(users);
