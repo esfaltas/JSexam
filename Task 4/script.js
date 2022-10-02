@@ -11,6 +11,7 @@ turėti bent minimalų stilių ir būti responsive;
 
 const ENDPOINT = 'cars.json';
 const mainCont = document.querySelector('#output')
+const cardCont = document.createElement('div')
 
 const getCars = async () => {
 try {
@@ -23,14 +24,17 @@ try {
         brand.setAttribute('id', 'newoutput');
         mainCont.append(brand);
 
-        const list = document.createElement('ul');
+        const list = document.createElement('h3');
         list.textContent = masina;
         brand.append(list);
 
-        const display = document.createElement('li');
-        display.textContent = marke;
-        list.append(display);  
-    })} catch(error) {
+        marke.forEach((element) => {        
+        const display = document.createElement('p');
+        display.textContent = element;
+        brand.append(display);
+})  
+})
+} catch(error) {
         console.log(error);
     }
 }

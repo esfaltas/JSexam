@@ -32,4 +32,10 @@
   border: 1px black solid;
   padding: 0.5rem;
   margin: 1rem;
+  width: 300px;
+}
+
+#output {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
 }

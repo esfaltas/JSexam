@@ -28,7 +28,8 @@ console.log(average());
 
 function getNames() {
   let names = users.map(names => names.name);
-  return names;
+  let newArray = [names.join()];
+  return newArray;
 }
 
 console.log(getNames());
