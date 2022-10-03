@@ -61,9 +61,43 @@
 }
 
 .output-cointainer #newoutput {
-  width: 80%;
-  margin-top: 25px;
+  text-align: center;
+  width: 11,5%;
   padding: 30px;
   border-radius: 5px;
   background-color: #fff;
+  margin: 1rem;
+}
+
+p {
+  padding-bottom: 15px;
+}
+
+#newCont {
+  display: grid;
+}
+
+@media (min-width: 300px) {
+  #newCont { grid-template-columns: repeat(1, 1fr);}
+}
+
+@media (min-width: 600px) {
+  #newCont { grid-template-columns: repeat(2, 1fr);}
+}
+
+@media (min-width: 900px) {
+  #newCont { grid-template-columns: repeat(3, 1fr);}
+}
+
+@media (min-width: 1200px) {
+  #newCont { grid-template-columns: repeat(4, 1fr);}
+}
+
+#newoutput {
+    background-image: url('https://github-images.s3.amazonaws.com/blog/2011/cc-wallpaper-iphone4.png');
+    background-size: 95%;
+}
+
+#newoutput p {
+  color: white;
 }

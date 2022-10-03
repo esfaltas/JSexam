@@ -12,6 +12,9 @@ turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
 const ENDPOINT = 'https://api.github.com/users';
 const body = document.querySelector('.output-cointainer');
+const cardCont = document.createElement('div');
+cardCont.setAttribute('id', 'newCont');
+body.append(cardCont);
 
 const fetchData = async () => {
 try {  const response = await fetch(ENDPOINT);
@@ -21,7 +24,7 @@ try {  const response = await fetch(ENDPOINT);
     const userInfo = `${user.login}`;
     const newCard = document.createElement('div');
     newCard.setAttribute('id', 'newoutput');
-    body.append(newCard);
+    cardCont.append(newCard);
 
     const infoo = document.createElement('p');
     infoo.textContent = userInfo;
