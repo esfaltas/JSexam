@@ -12,8 +12,16 @@ document.getElementById("output").style.visibility = "hidden";
 
 function converte(e) {
     e.preventDefault()
+
+    const skaicius = document.querySelector('#search');
+    const svoris = Number(skaicius.value);
+    if (!svoris || isNaN(svoris)) {
+      alert("Please enter weight");
+      return;
+    }
+
     document.getElementById("output").style.visibility = "visible";
-    const svoris = document.querySelector('#search');
+
     let lb = svoris.value * 2.2046; // .toFixed() neveikia?
     let num1 = document.getElementById("pounds").innerHTML = lb.toFixed(2);
     let g =  svoris.value / 0.0010000;
